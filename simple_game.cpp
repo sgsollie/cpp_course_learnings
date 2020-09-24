@@ -3,8 +3,23 @@
 #include <cstdlib>
 #include <ctime>
 
+void print_array(int array[], int count)
+{
+    std::cout << "Your guesses were: " << std::endl;
+    for (int i = 0; i < count; i++)
+    {
+        std::cout << array[i] << '\t';
+        
+    }
+    std::cout << std::endl;
+    std::cout << "Solved in: " << count << " attempts." << std::endl;
+}
+
 void play_game()
 {
+    int guesses[251];
+    int guess_count = 0;
+
     int random = rand() % 251;
     std::cout << random << std::endl;                   //This prints the answer, useful for debugging.
     std::cout << "Guess a number: ";
@@ -12,6 +27,8 @@ void play_game()
     {
         int guess;
         std::cin >> guess;
+        guesses[guess_count++] = guess;                 //counter can be incremented in the index!
+        
         if(guess == random)
         {
             std::cout << "You Win!\n";
@@ -24,6 +41,8 @@ void play_game()
             std::cout << "Too High\n";
         }
     }
+    print_array(guesses, guess_count);
+    std::cout << std::endl;
 }
 
 
