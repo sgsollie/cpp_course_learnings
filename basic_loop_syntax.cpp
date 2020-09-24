@@ -16,5 +16,29 @@ int main()
     {
         std::cout << j << std::endl;
     }
-    return 0;
+    
+
+    std::cout << "\nFactorial:\n";
+
+    int factorial = 5;
+    int k = factorial -1;
+    while (k > 1)
+    {
+        factorial *= k;
+        k--;
+    }
+    std::cout << factorial << std::endl;
+
+
+    //do while - something that happens at least once - eg matching a password from input
+
+    std::string password = "guessthisword123";
+    std::string guess;
+    do
+    {
+        std::cout << "Guess the password: ";
+        std::cin >> guess;
+
+    } while(guess != password);
+
 }
